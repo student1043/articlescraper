@@ -23,10 +23,10 @@ class Generator(text):
         phrases.append(text)
         print(phrases)
         for phrase in phrases:
-        para_phrases = []
-        para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
-        for p in para_phrases:
-            selected = p[0]
+            para_phrases = []
+            para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
+            for p in para_phrases:
+                selected = p[0]
 
 sa = Generator(text).test_generate(selected)
 print(sa)
