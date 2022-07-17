@@ -2,8 +2,11 @@ from parrot import Parrot
 from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
+from flask import Flask
 
+app = Flask(__name__)
 
+@app.route("/")
 class Generator():
     def test_generate(self, input_str: str):
         tokenizerfile = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-125M")
