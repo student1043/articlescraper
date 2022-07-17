@@ -5,10 +5,10 @@ import warnings
 import micropip
 
 
-micropip.install("parrot")
-micropip.install("transformers")
-micropip.install("torch")
-micropip.install("warnings")
+micropip.install("parrot", keep_going="True")
+micropip.install("transformers", keep_going="True")
+micropip.install("torch", keep_going="True")
+micropip.install("warnings", keep_going="True")
 
 
 class Generator():
