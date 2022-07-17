@@ -33,5 +33,3 @@ for phrase in phrases:
 sa = Generator().test_generate(selected)
 print(sa)
 
-if __name__ == "__main__":
-    app.run()
