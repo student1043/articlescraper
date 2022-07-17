@@ -2,11 +2,9 @@ from parrot import Parrot
 from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
-from bottle import route, run
 
 
-@route('/')
-class Generator():
+class Generator(text):
     def test_generate(self, input_str: str):
         tokenizerfile = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-125M")
         tokenizerfile.pad_token = tokenizerfile.eos_token
@@ -21,7 +19,7 @@ class Generator():
 
 parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 phrases = []
-phrases.append(input("insert phrase to search: "))
+phrases.append(text)
 print(phrases)
 for phrase in phrases:
     para_phrases = []
@@ -31,6 +29,3 @@ for phrase in phrases:
 
 sa = Generator().test_generate(selected)
 print(sa)
-
-
-run(host='localhost', port=8080, debug=True)
