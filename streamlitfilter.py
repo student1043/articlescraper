@@ -26,7 +26,6 @@ for phrase in phrases:
     para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
     for p in para_phrases:
         selected = p[0]
-    return(selected)
 
 sa = Generator().test_generate(selected)
 print(sa)
