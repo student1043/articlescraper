@@ -22,7 +22,7 @@ class Generator():
 parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 phrases = []
 phrases.append(input("insert phrase to search: "))
-put_text(phrases)
+print(phrases)
 for phrase in phrases:
     para_phrases = []
     para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
