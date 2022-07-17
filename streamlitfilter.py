@@ -19,11 +19,6 @@ class Generator():
         print(output_str)
 
 
-phrases = []
-phrases.append(input("insert phrase to search: "))
-print(phrases)
-for phrase in phrases:
-    para_phrases = Parrot.augment(input_phrase=phrase, use_gpu=False)
-    print(para_phrases)
+para_phrases = "what happened in world war 2"
 
 sa = Generator().test_generate(para_phrases)
