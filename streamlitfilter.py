@@ -4,7 +4,7 @@ import torch
 import warnings
 import streamlit as st
 
-
+@st.cache
 tokenizer = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-125M")
 tokenizer.pad_token = tokenizer.eos_token
 gradient_ckpt = True
@@ -13,6 +13,8 @@ parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 phrases = []
 phrases.append(st.text_input("insert phrase to search", ""))
 
+
+@st.cache
 def test_generate(input_str: str):
     input_ids = tokenizer.encode(input_str, add_special_tokens=False, return_tensors="pt")
     attention_mask = torch.where(input_ids == tokenizer.eos_token_id, torch.zeros_like(input_ids), torch.ones_like(input_ids)).to(model.device)
