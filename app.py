@@ -2,10 +2,13 @@ from parrot import Parrot
 from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
-import cgitb cgitb.enable()
+import web
 
+urls = (
+    '/(.*)', 'Generator'
+)
+app = web.application(urls, globals())
 
-start_response('200 OK', [('Content-Type', 'text/html')])
 
 class Generator():
     def test_generate(self, input_str: str):
@@ -33,3 +36,6 @@ for phrase in phrases:
 sa = Generator().test_generate(selected)
 print(sa)
 
+
+if __name__ == "__main__":
+    app.run()
