@@ -17,7 +17,7 @@ class Generator():
         output_str = tokenizerfile.decode(output_ids[0], skip_special_tokens=False, clean_up_tokenization_spaces=False)
         print(output_str)
 
-    def parrot(text):
+    def parrot_generate(text):
         parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
         phrases = []
         phrases.append(text)
