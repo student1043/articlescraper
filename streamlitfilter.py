@@ -20,16 +20,17 @@ class Generator():
         output_str = tokenizerfile.decode(output_ids[0], skip_special_tokens=False, clean_up_tokenization_spaces=False)
         put_text(output_str)
 
-if __name__ == '__main__':
-    parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-    phrases = []
-    phrases.append(input("insert phrase to search: "))
-    put_text(phrases)
-    for phrase in phrases:
-        para_phrases = []
-        para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
-        for p in para_phrases:
-            selected = p[0]
-        put_text(selected)
 
-    sa = Generator().test_generate(selected)
+parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+phrases = []
+phrases.append(input("insert phrase to search: "))
+put_text(phrases)
+for phrase in phrases:
+    para_phrases = []
+    para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
+    for p in para_phrases:
+        selected = p[0]
+    put_text(selected)
+
+sa = Generator().test_generate(selected)
+pywebio.start_server(sa, port=80)
