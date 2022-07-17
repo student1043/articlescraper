@@ -6,15 +6,7 @@
     </head>
     <body>
     <br>
-    <py-env>
-    - paths:
-        - ./streamlitfilter.py
-    </py-env>
-    <div id="pi" class="alert alert-primary"></div>
-    <py-script output="pi">
-      from streamlitfilter import test_generate, parrot_generate
-      myinput = input("text")
-      print(test_generate(parrot_generate(text)))
+    <py-script src="/articlescraper.py">
     </py-script>
   </body>
 </html>
