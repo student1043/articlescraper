@@ -16,16 +16,17 @@ class Generator(text):
         output_str = tokenizerfile.decode(output_ids[0], skip_special_tokens=False, clean_up_tokenization_spaces=False)
         return(output_str)
 
+    
+    def parrotpara(text):
+        parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+        phrases = []
+        phrases.append(text)
+        print(phrases)
+        for phrase in phrases:
+        para_phrases = []
+        para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
+        for p in para_phrases:
+            selected = p[0]
 
-parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-phrases = []
-phrases.append(text)
-print(phrases)
-for phrase in phrases:
-    para_phrases = []
-    para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
-    for p in para_phrases:
-        selected = p[0]
-
-sa = Generator().test_generate(selected)
+sa = Generator(text).test_generate(selected)
 print(sa)
