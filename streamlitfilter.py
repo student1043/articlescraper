@@ -3,9 +3,6 @@ from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
 import streamlit as st
-from pywebio.input import input, FLOAT
-from pywebio.output import put_text
-from pywebio import start_server
 
 
 class Generator():
@@ -18,19 +15,18 @@ class Generator():
         attention_mask = torch.where(input_ids == tokenizerfile.eos_token_id, torch.zeros_like(input_ids), torch.ones_like(input_ids)).to(model.device)
         output_ids = model.generate(input_ids, attention_mask=attention_mask, max_new_tokens=750, num_return_sequences=1)
         output_str = tokenizerfile.decode(output_ids[0], skip_special_tokens=False, clean_up_tokenization_spaces=False)
-        put_text(output_str)
+        print(output_str)
+
+    def parrot(text):
+        parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
+        phrases = []
+        phrases.append(text)
+        print(phrases)
+        for phrase in phrases:
+            para_phrases = []
+            para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
+            for p in para_phrases:
+                selected = p[0]
+            return(selected)
 
 
-parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-phrases = []
-phrases.append(input("insert phrase to search: "))
-put_text(phrases)
-for phrase in phrases:
-    para_phrases = []
-    para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
-    for p in para_phrases:
-        selected = p[0]
-    put_text(selected)
-
-sa = Generator().test_generate(selected)
-pywebio.start_server(sa, port=80)
