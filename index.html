@@ -14,7 +14,7 @@
     </py-env>
     <py-script src="/streamlitfilter.py">
         async def main():
-            await micropip.install(["parrot", "transformers", "torch", "warnings"], keep_going="True")
+            await micropip.install(["parrot", "transformers", "torch", "warnings"], keep_going=True)
         await loop.run_until_complete(main())
     </py-script>
   </body>
