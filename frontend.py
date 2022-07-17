@@ -1,6 +1,6 @@
 import multiprocessing
 import streamlit as st
-from app import *
+from app import Generator
 
 
 st.title("ARTICLE GENERATOR")
