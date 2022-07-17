@@ -33,4 +33,3 @@ if __name__ == '__main__':
         put_text(selected)
 
     sa = Generator().test_generate(selected)
-    pywebio.start_server(sa, port=80)
