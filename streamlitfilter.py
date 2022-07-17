@@ -12,6 +12,7 @@ model = GPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-125M", pad_token_i
 parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
 phrases = []
 phrases.append(input("insert phrase to search"))
+print(phrases)
 
 def test_generate(input_str: str):
     input_ids = tokenizerfile.encode(input_str, add_special_tokens=False, return_tensors="pt")
