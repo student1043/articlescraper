@@ -2,14 +2,10 @@ from parrot import Parrot
 from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
-import web
-
-urls = (
-    '/(.*)', 'Generator'
-)
-app = web.application(urls, globals())
+from bottle import route, run
 
 
+@route('/')
 class Generator():
     def test_generate(self, input_str: str):
         tokenizerfile = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-125M")
@@ -37,5 +33,4 @@ sa = Generator().test_generate(selected)
 print(sa)
 
 
-if __name__ == "__main__":
-    app.run()
+run(host='localhost', port=8080, debug=True)
