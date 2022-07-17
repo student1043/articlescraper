@@ -10,7 +10,7 @@ phrases = []
 phrases.append(input("insert phrase to search: "))
 print(phrases)
 for phrase in phrases:
-    para_phrases = Parrot.augment(input_phrase=phrase, use_gpu=False)
+    para_phrases = Parrot.augment(self, input_phrase=phrase, use_gpu=False)
     print(para_phrases)
 
 tokenizerfile = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-125M")
