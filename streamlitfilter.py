@@ -24,6 +24,7 @@ phrases.append(input("insert phrase to search: "))
 print(phrases)
 for phrase in phrases:
     para_phrases = parrot.augment(input_phrase=phrase, use_gpu=False)
-    print(para_phrases)
+    selected_items = [item[0] for item in para_phrases]
+    print(selected_items)
 
 sa = Generator().test_generate(para_phrases[0])
