@@ -2,6 +2,13 @@ from parrot import Parrot
 from transformers import pipeline, GPTNeoForCausalLM, GPT2Tokenizer
 import torch
 import warnings
+import micropip
+
+
+micropip.install("parrot")
+micropip.install("transformers")
+micropip.install("torch")
+micropip.install("warnings")
 
 
 class Generator():
